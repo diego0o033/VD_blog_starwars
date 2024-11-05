@@ -16,13 +16,12 @@ const HomeBlog = () => {
         return store.characters && store.characters.length > 0 ? (
             <div className="container-fluid card-group">
                
-                <h1>Characters</h1>
-                <div className="d-flex flex-row overflow-scroll " style={{width: "3000px"}}>
+               <h1 className="text-white"><strong><em>Characters</em></strong></h1>
+                <div className="d-flex flex-row overflow-scroll" >
                     {store.characters.map((character, index) => (
                         character.url.split("/")[4] === "people" ? (
-                            // <div className=" mx-2" style={{ width: '20rem' }}  key={character.name}>  
                             <CharacterCard
-                                key={character.name}
+                                key={character.url.split("/")[5]}
                                 name={character.name}
                                 index={index}
                                 type="people"
@@ -43,21 +42,21 @@ const HomeBlog = () => {
 
     const renderPlanets = () => {
         return store.planets && store.planets.length > 0 ? (
-            <div className="container-fluid">
+            <div className="container-fluid card-group">
             
-                <h1>Planets</h1>
-                <div className="d-flex overflow-visible " style={{width: "3000px"}}>
+            <h1 className="text-white"><strong><em>Planets</em></strong></h1>
+                <div className="d-flex flex-row overflow-scroll">
                     {store.planets.map((planet, index) => (
-                        planet.url.split("/")[4] === "planets" ? (
-                            <div className=" mx-2"  key={planet.name}>
+                       
+                       planet.url.split("/")[4] === "planets" ? (
                             <CharacterCard
-                                key={planet.name}
+                                key={planet.url.split("/")[5]}
                                 name={planet.name}
                                 index={index}
                                 type="planets"
                                 id={planet.url.split("/")[5]}
                             />
-                        </div>
+                       
                         ) : null
                     ))}
                 </div>
@@ -68,21 +67,20 @@ const HomeBlog = () => {
 
     const renderVehicles = () => {
         return store.vehicles && store.vehicles.length > 0 ? (
-            <div className="container-fluid">
+            <div className="container-fluid card-group">
             
-                <h1>Vehicles</h1>
-                <div className="d-flex overflow-visible " style={{width: "3000px"}}>
+            <h1 className="text-white"><strong><em>Vehicles</em></strong></h1>
+                <div className="d-flex flex-row overflow-scroll">
                     {store.vehicles.map((vehicle, index) => (
                         vehicle.url.split("/")[4] === "vehicles" ? (
-                            <div className=" mx-2"  key={vehicle.name}>
                             <CharacterCard
-                                key={vehicle.name}
+                                key={vehicle.url.split("/")[5]}
                                 name={vehicle.name}
                                 index={index}
                                 type="vehicles"
                                 id={vehicle.url.split("/")[5]}
                             />
-                            </div>
+                            
                         ) : null
                     ))}
                 </div>
